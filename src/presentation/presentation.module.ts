@@ -1,6 +1,7 @@
+import { DomainModule } from '@domain/domain.module'
 import { Module } from '@nestjs/common'
 
-const myControllersModule = []
+const myControllersModule = [DomainModule]
 
 @Module({
   imports: [...myControllersModule],
