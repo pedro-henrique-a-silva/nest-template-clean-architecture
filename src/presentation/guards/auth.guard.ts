@@ -1,4 +1,4 @@
-import { IRole } from '@domain/interfaces/role.interface'
+import { IRole } from '@domain/interfaces/shared/role.interface'
 import {
   BadRequestException,
   CanActivate,
