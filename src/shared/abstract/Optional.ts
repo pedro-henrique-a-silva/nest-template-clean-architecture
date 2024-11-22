@@ -17,6 +17,14 @@ export class Optional<T> {
     return this.isPresent() ? (this.value as T) : defaultValue
   }
 
+  map<U>(mapper: (value: T) => U): Optional<U> {
+    return this.isPresent() ? new Optional(mapper(this.value as T)) : new Optional<U>(null);
+  }
+
+  flatMap<U>(mapper: (value: T) => Optional<U>): Optional<U> {
+    return this.isPresent() ? mapper(this.value as T) : new Optional<U>(null);
+  }
+
   orElseThrow<E extends Error>(exception: (() => E) | E): T {
     if (this.isPresent()) {
       return this.value!
