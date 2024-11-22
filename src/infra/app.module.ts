@@ -3,10 +3,12 @@ import { APP_GUARD } from '@nestjs/core'
 import { JwtModule } from '@nestjs/jwt'
 import { ServeStaticModule } from '@nestjs/serve-static'
 import { AuthGuard } from '@presentationguards/auth.guard'
+import { PresentationModule } from '@presentationpresentation.module'
 import { join } from 'path'
 
 @Module({
   imports: [
+    PresentationModule,
     JwtModule.register({
       global: true,
       secret: process.env.JWT_SECRET,
